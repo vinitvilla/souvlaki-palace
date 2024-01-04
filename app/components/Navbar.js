@@ -5,6 +5,7 @@ import { Luckiest_Guy } from 'next/font/google';
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { Badge } from '@nextui-org/badge';
 import { User } from '@nextui-org/user';
+import Logo from './../assets/img/logo.png'
 
 const luckiestGuy = Luckiest_Guy({
   subsets: ['latin'],
@@ -25,7 +26,7 @@ const Navbar = () => {
       </div>
       <div className='flex flex-col items-center'>
         <Image
-          src="/img/logo.png"
+          src={Logo}
           alt="logo"
           width={0}
           height={0}
