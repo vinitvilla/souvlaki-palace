@@ -25,7 +25,7 @@ module.exports = {
         appText: '#020102',
 
         appUnselectedElement: '#9f9f9f',
-        appSelectedElement: '#e3000e'
+        appSelectedElement: '#c1121f'
       }
     },
   },

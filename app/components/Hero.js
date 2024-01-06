@@ -32,7 +32,7 @@ const Hero = () => {
   };
 
   return (
-    <div className='min-h-screen sm:min-h-screen bg-[#ffd650] flex justify-center items-center duration-200'
+    <div className='min-h-screen sm:min-h-screen bg-[#ffd650] flex justify-center items-center w-screen duration-200 lg:p-16 md:p-8 p-4'
       style={bgImage}
       >
         <div className="container pb-8 sm:pb-0">
@@ -59,18 +59,19 @@ const Hero = () => {
               </div>
             </div>
             {/* Image section */}
-            <div className="min-h-[450px] sm:min-h-[450px] flex justify-center items-center relative order-1 sm:order-2 ">
-              <div className="h-[300px] sm:h-[450px] overflow-hidden flex justify-center items-center">
+            <div className="min-h-[450px] sm:min-h-[450px] flex flex-col justify-center gap-4 items-center relative order-1 sm:order-2 ">
+              <div className="h-[300px] sm:h-[450px] overflow-hidden flex justify-center items-center hover:cursor-pointer">
                 <Image
                   data-aos="zoom-in"
                   data-aos-duration="300"
                   data-aos-once="true"
                   src={imageId}
                   alt="biryani img"
-                  className="w-[300px] sm:w-[450px] sm:scale-125  mx-auto spin "
+                  className="w-[300px] sm:w-[450px] sm:scale-125 hover:scale-105 duration-200"
+                  priority
                 />
               </div>
-              <div className="flex lg:flex-col lg:top-1/2 lg:-translate-y-1/2 lg:py-2 justify-center gap-4 absolute bottom-[0px] lg:-right-10 bg-white/30 rounded-full">
+              <div className="flex sm:flex-col lg:flex-row md:flex-row lg:py-2 justify-center gap-4 lg:-right-10 bg-white/30 rounded-full">
                 {ImageList.map((item) => (
                   <Image
                     key={item.id}
@@ -78,6 +79,7 @@ const Hero = () => {
                     data-aos-duration="400"
                     data-aos-once="true"
                     src={item.img}
+                    priority
                     onClick={() => {
                       setImageId(
                         item.id === 1
@@ -88,7 +90,7 @@ const Hero = () => {
                       );
                     }}
                     alt="biryani img"
-                    className="max-w-[80px] h-[80px] object-contain inline-block hover:scale-105 duration-200"
+                    className="max-w-[80px] h-[80px] object-contain inline-block hover:cursor-pointer hover:scale-105 duration-200"
                   />
                 ))}
               </div>
@@ -96,9 +98,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    // <div className={`${isAbsolute ? 'absolute' : ''} top-0 w-full`}>
-
-    // </div>
   )
 }
 
