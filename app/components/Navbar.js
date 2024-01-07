@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, User, Badge} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, User, Badge, Divider} from "@nextui-org/react";
 import Logo from './../assets/img/logo.png'
 import Image from "next/image";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { Luckiest_Guy } from "next/font/google";
+import ShopStatus from "./ShopStatus";
 
 const luckiestGuy = Luckiest_Guy({
   subsets: ['latin'],
@@ -98,6 +99,8 @@ export default function NavbarUI() {
             </Link>
           </NavbarMenuItem>
         ))}
+        <Divider />
+        <ShopStatus />
       </NavbarMenu>
     </Navbar>
   );

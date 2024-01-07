@@ -2,14 +2,14 @@
 
 import Image from 'next/image';
 import Logo from './../assets/img/logo.png'
-import React, { useState } from 'react';
+import React from 'react';
 import { Luckiest_Guy } from "next/font/google";
 import { FiPhoneCall } from "react-icons/fi";
 import { HiMailOpen } from "react-icons/hi";
 import { FaRegAddressCard } from "react-icons/fa";
-import { Chip } from '@nextui-org/react';
-import { LuDot } from "react-icons/lu";
 import Link from 'next/link';
+
+import ShopStatus from './ShopStatus';
 
 const luckiestGuy = Luckiest_Guy({
   subsets: ['latin'],
@@ -17,22 +17,7 @@ const luckiestGuy = Luckiest_Guy({
   variable: '--font-luckiest-guy',
 });
 
-const isCurrentTimeInRange = () => {
-  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-  const currentDate = new Date();
-  const currentHour = currentDate.getHours();
-  const currentDay = daysOfWeek[currentDate.getDay()];
-
-  if(currentDay === 'Friday' || currentDay === 'Saturday') {
-    return currentHour >= 13 && currentHour < 23;
-  }
-  return currentHour >= 13 && currentHour < 22;
-}
-
 const Footer = () => {
-  const [open, setOpen] = useState(isCurrentTimeInRange());
-
   return (
     <footer className="p-8 bg-primary text-primaryBg">
       <div className="container mx-auto py-8">
@@ -77,14 +62,7 @@ const Footer = () => {
 
           <div className="working-hours md:w-1/4 flex flex-col mt-8">
             <h3 className="text-lg font-bold mb-1 text-secondaryBg">Working Hours</h3>
-            <Chip
-              startContent={<LuDot size={36} />}
-              variant="faded"
-              color={open ? 'success' : 'warning'}
-              className='bg-secondaryBg border border-secondaryBg uppercase'
-            >
-              { open ? 'Open now' : 'Closed'}
-            </Chip>
+            <ShopStatus />
             <div className='grid grid-cols-2 gap-2'>
               <span className='font-bold text-secondaryBg'>Sunday - Thursday</span>
               <span>1:00 PM - 10:00 PM</span>
