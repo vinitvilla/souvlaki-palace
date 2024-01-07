@@ -32,7 +32,7 @@ const Hero = () => {
   };
 
   return (
-    <div className='min-h-screen sm:min-h-screen bg-[#ffd650] flex justify-center items-center w-screen duration-200 lg:p-16 md:p-8 p-4'
+    <div className='min-h-screen sm:min-h-screen bg-primary flex justify-center items-center w-screen duration-200 lg:p-16 md:p-8 p-4'
       style={bgImage}
       >
         <div className="container pb-8 sm:pb-0">

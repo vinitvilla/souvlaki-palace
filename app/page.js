@@ -2,6 +2,7 @@
 import Head from 'next/head';
 import Hero from './components/Hero';
 import PopularItems from './components/PopularItems';
+import Footer from './components/Footer';
 
 export default function Home() {
 
@@ -13,6 +14,7 @@ export default function Home() {
       <div className='w-full'>
         <Hero />
         <PopularItems />
+        <Footer />
       </div>
     </main>
   )

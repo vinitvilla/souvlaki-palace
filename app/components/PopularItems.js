@@ -8,22 +8,22 @@ const items = [
   {
     name: 'Pizzas',
     key: 'jewelery',
-    icon: <GiFullPizza className='lg:w-24 lg:h-24 md:w-16 md:h-16 sm:w-12 sm:h-12'/>,
+    icon: <GiFullPizza className='lg:w-24 lg:h-24 md:w-24 md:h-24 sm:w-24 sm:h-24'/>,
   },
   {
     name: 'Burgers',
     key: "men's clothing",
-    icon: <GiHamburger className='lg:w-24 lg:h-24 md:w-16 md:h-16 sm:w-12 sm:h-12'/>,
+    icon: <GiHamburger className='lg:w-24 lg:h-24 md:w-24 md:h-24 sm:w-24 sm:h-24'/>,
   },
   {
     name: 'Sides',
     key: 'electronics',
-    icon: <FaBowlFood className='lg:w-24 lg:h-24 md:w-16 md:h-16 sm:w-12 sm:h-12'/>,
+    icon: <FaBowlFood className='lg:w-24 lg:h-24 md:w-24 md:h-24 sm:w-24 sm:h-24'/>,
   },
   {
     name: 'Drinks',
     key: "women's clothing",
-    icon: <BiDrink className='lg:w-24 lg:h-24 md:w-16 md:h-16 sm:w-12 sm:h-12'/>,
+    icon: <BiDrink className='lg:w-24 lg:h-24 md:w-24 md:h-24 sm:w-24 sm:h-24'/>,
   }
 ]
 
@@ -33,7 +33,7 @@ const PopularItems = () => {
   return (
     <>
       <p className='lg:p-8 md:p-4 sm:p-2 lg:text-3xl md:text-2xl sm:text-xl m-4 font-bold text-center'>Popular Items</p>
-      <div className='lg:p-8 md:p-4 sm:p-2 flex gap-16 justify-around mx-4'>
+      <div className='lg:p-8 md:p-4 sm:p-2 flex justify-around mx-4'>
         {
           items.map(({ name, key, icon}) => (
               <div

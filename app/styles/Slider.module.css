@@ -26,3 +26,7 @@
   height: 300px;
   margin: 20px auto;
 }
+
+.swiper-pagination {
+  bottom: 95%;
+}

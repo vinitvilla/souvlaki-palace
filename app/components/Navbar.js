@@ -17,9 +17,9 @@ export default function NavbarUI() {
   const [cartItemsCount, setCartItemsCount] = useState(4);
 
   const menuItems = [
-    "Menu",
-    "About",
-    "Contact",
+    { title: 'Menu', href: '/menu' },
+    { title: 'About', href: '/about' },
+    { title: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -44,33 +44,29 @@ export default function NavbarUI() {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex justify-between gap-4" justify="start">
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Menu
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page" color="warning">
-            About
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Contact
-          </Link>
-        </NavbarItem>
+        {
+          menuItems.map((item) => (
+            <NavbarItem key={item.title}>
+              <Link color="foreground" href={item.href}>
+                {item.title}
+              </Link>
+            </NavbarItem>
+          ))
+        }
       </NavbarContent>
       <NavbarContent className="hidden sm:flex justify-between gap-4" justify="center">
         <NavbarBrand className="flex flex-col">
-          <Image
-            src={Logo}
-            alt="logo"
-            width={0}
-            height={0}
-            sizes="100vw"
-            className={'lg:w-[100px] lg:h-[100px] md:w-[75px] md:h-[75px] sm:w-[50px] sm:h-[50px]'}
-            priority
-          />
+          <Link href="/">
+            <Image
+              src={Logo}
+              alt="logo"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className={'lg:w-[100px] lg:h-[100px] md:w-[75px] md:h-[75px] sm:w-[50px] sm:h-[50px]'}
+              priority
+            />
+          </Link>
           <p className={`${luckiestGuy.className} hidden font-bold`}>SOUVLAKI PALACE</p>
         </NavbarBrand>
       </NavbarContent>
@@ -91,17 +87,14 @@ export default function NavbarUI() {
       </NavbarContent>
 
       <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+        {menuItems.map(({ title, href}, index) => (
+          <NavbarMenuItem key={`${title}-${index}`}>
             <Link
               className="w-full"
-              color={
-                index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
-              }
-              href="#"
+              href={href}
               size="lg"
             >
-              {item}
+              {title}
             </Link>
           </NavbarMenuItem>
         ))}
