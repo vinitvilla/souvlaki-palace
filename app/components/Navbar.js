@@ -88,17 +88,19 @@ export default function NavbarUI() {
       </NavbarContent>
 
       <NavbarMenu>
-        {menuItems.map(({ title, href}, index) => (
+        {
+        menuItems.map(({ title, href}, index) => (
           <NavbarMenuItem key={`${title}-${index}`}>
             <Link
-              className="w-full"
+              className="w-full text-primaryBg"
               href={href}
               size="lg"
             >
               {title}
             </Link>
           </NavbarMenuItem>
-        ))}
+          ))
+        }
         <Divider />
         <ShopStatus />
       </NavbarMenu>

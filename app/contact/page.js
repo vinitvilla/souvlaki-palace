@@ -19,8 +19,8 @@ const contact = () => {
         <Card className='m-4 p-4 lg:w-1/2 shrink-0 grow-0 basis-auto lg:px-6'>
           <form>
             <CardBody className='flex flex-col gap-4'>
-              <Input variant='bordered' color='primaryBg' type="text" label="Name" placeholder="Enter your Name" />
-              <Input type="email" label="Email" placeholder="Enter your email" />
+              <Input isRequired type="text" label="Name" placeholder="Enter your Name" />
+              <Input isRequired type="email" label="Email" placeholder="Enter your email" />
               <Textarea
                 isRequired
                 label="Description"
