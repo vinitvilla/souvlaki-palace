@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, User, Badge, Divider} from "@nextui-org/react";
 import Logo from './../assets/img/logo.png'
 import Image from "next/image";
@@ -16,9 +16,7 @@ const luckiestGuy = Luckiest_Guy({
 export default function NavigationBar() {
   const { user } = UserAuth();
 
-  console.log(user);
-
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [cartItemsCount, setCartItemsCount] = useState(4);
 
   const menuItems = [
@@ -27,6 +25,15 @@ export default function NavigationBar() {
     { title: 'About', href: '/about' },
     { title: 'Contact', href: '/contact' },
   ];
+
+  useEffect(() => {
+    if (user) {
+      setIsLoggedIn(true);
+    }
+    else {
+      setIsLoggedIn(false);
+    }
+  }, [user]);
 
   return (
     <Navbar isBordered className="flex justify-center gap-8">
@@ -90,7 +97,7 @@ export default function NavigationBar() {
               }}
             />
           :
-          <p className='lg:text-2xl md:text-xl sm:text-lg font-bold'>Login</p>
+          <Link className='lg:text-2xl md:text-xl sm:text-lg font-bold text-primaryBg' href={'/login'}>Login</Link>
         }
       </NavbarContent>
 

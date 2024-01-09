@@ -1,5 +1,5 @@
 'use client';
-import { useContext, createContext, useState } from "react";
+import { useContext, createContext, useState, useEffect } from "react";
 import { signInWithPhoneNumber, signOut, onAuthStateChanged, RecaptchaVerifier } from 'firebase/auth';
 import { auth } from '../firebase/authentication';
 
@@ -9,6 +9,12 @@ export const AuthContextProvider = ({ children }) => {
 
   const [user, setUser] = useState(null);
   const [confirmation, setConfirmation] = useState(null);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    })
+  }, [user])
 
   const generateRecaptcha = (recaptchaContainer) => {
     const appVerifier = new RecaptchaVerifier(auth, recaptchaContainer, {
