@@ -5,6 +5,7 @@ import Image from "next/image";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { Luckiest_Guy } from "next/font/google";
 import ShopStatus from "./ShopStatus";
+import { UserAuth } from "../context/auth-context";
 
 const luckiestGuy = Luckiest_Guy({
   subsets: ['latin'],
@@ -12,12 +13,16 @@ const luckiestGuy = Luckiest_Guy({
   variable: '--font-luckiest-guy',
 })
 
-export default function NavbarUI() {
+export default function NavigationBar() {
+  const { user } = UserAuth();
+
+  console.log(user);
 
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [cartItemsCount, setCartItemsCount] = useState(4);
 
   const menuItems = [
+    { title: 'Home', href: '/' },
     { title: 'Menu', href: '/menu' },
     { title: 'About', href: '/about' },
     { title: 'Contact', href: '/contact' },
@@ -31,15 +36,17 @@ export default function NavbarUI() {
 
       <NavbarContent className="sm:hidden flex pr-3" justify="center">
         <NavbarBrand className="h-full">
-          <Image
-            src={Logo}
-            alt="logo"
-            width={0}
-            height={0}
-            sizes="100vw"
-            className={'w-[100px] h-[100px]'}
-            priority
-          />
+          <Link href="/">
+            <Image
+              src={Logo}
+              alt="logo"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className={'w-[100px] h-[100px]'}
+              priority
+            />
+          </Link>
           <p className={`${luckiestGuy.className} hidden font-bold`}>SOUVLAKI PALACE</p>
         </NavbarBrand>
       </NavbarContent>
