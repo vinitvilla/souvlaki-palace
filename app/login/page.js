@@ -5,7 +5,7 @@ import { UserAuth } from '../context/auth-context';
 import { verify } from 'crypto';
 
 const Login = () => {
-  const [phoneNumber, setPhoneNumber] = useState('4168574974');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [otp, setOtp] = useState('');
   const { signIn, verifyOTP } = UserAuth();
 
