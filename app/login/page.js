@@ -32,9 +32,7 @@ const Login = () => {
   const handleNextStep = () => {
     const nextStep = getNextStep();
 
-    console.log('hey...', currentStepIdx);
     if(!nextStep) {
-      setShowToast(true);
       router.back();
       return;
     }
