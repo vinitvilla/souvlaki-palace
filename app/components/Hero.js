@@ -32,18 +32,18 @@ const Hero = () => {
   };
 
   return (
-    <div className='min-h-screen sm:min-h-screen bg-primary flex justify-center items-center w-screen duration-200 lg:p-16 md:p-8 p-4'
+    <div className='min-h-screen bg-primary flex justify-center items-center w-screen duration-200 lg:p-16 md:p-8 p-4'
       style={bgImage}
       >
-        <div className="container pb-8 sm:pb-0">
+        <div className="container pb-8 pb-0">
           <div className="grid grid-cols-1 sm:grid-cols-2">
             <div
               data-aos="zoom-out"
               data-aos-duration="400"
               data-aos-once="true"
-              className="flex flex-col justify-center gap-4 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1"
+              className="flex flex-col justify-center gap-4 pt-12 pt-0 text-center text-left order-2 order-1"
             >
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold">
+              <h1 className="text-5xl lg:text-7xl font-bold">
                 Introducing our {' '}
                 <span className="bg-clip-text text-transparent bg-gradient-to-t from-primary to-secondaryBg">
                   chef&apos;s special biryani
@@ -59,19 +59,19 @@ const Hero = () => {
               </div>
             </div>
             {/* Image section */}
-            <div className="min-h-[450px] sm:min-h-[450px] flex flex-col justify-center gap-4 items-center relative order-1 sm:order-2 ">
-              <div className="h-[300px] sm:h-[450px] overflow-hidden flex justify-center items-center hover:cursor-pointer">
+            <div className="min-h-[450px] flex flex-col justify-center gap-4 items-center relative order-1 order-2 ">
+              <div className="h-[450px] overflow-hidden flex justify-center items-center hover:cursor-pointer">
                 <Image
                   data-aos="zoom-in"
                   data-aos-duration="300"
                   data-aos-once="true"
                   src={imageId}
                   alt="biryani img"
-                  className="w-[300px] sm:w-[450px] sm:scale-125 hover:scale-105 duration-200"
+                  className="w-[300px] hover:scale-125 duration-200"
                   priority
                 />
               </div>
-              <div className="flex sm:flex-col lg:flex-row md:flex-row lg:py-2 justify-center gap-4 lg:-right-10 bg-white/30 rounded-full">
+              <div className="flex flex-row lg:py-2 justify-center gap-4 bg-white/30 rounded-full">
                 {ImageList.map((item) => (
                   <Image
                     key={item.id}

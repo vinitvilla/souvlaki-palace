@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, User, Badge, Divider} from "@nextui-org/react";
-import Logo from './../assets/img/logo.png'
-import Image from "next/image";
 import { LiaShoppingBagSolid } from "react-icons/lia";
+import Image from "next/image";
 import { Luckiest_Guy } from "next/font/google";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Badge, Divider} from "@nextui-org/react";
+import Logo from './../assets/img/logo.png'
 import ShopStatus from "./ShopStatus";
+import UserIcon from "./UserIcon";
 import { UserAuth } from "../context/auth-context";
+import { usePathname } from "next/navigation";
 
 const luckiestGuy = Luckiest_Guy({
   subsets: ['latin'],
@@ -15,6 +17,7 @@ const luckiestGuy = Luckiest_Guy({
 
 export default function NavigationBar() {
   const { user } = UserAuth();
+  const pathname = usePathname();
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [cartItemsCount, setCartItemsCount] = useState(4);
@@ -22,7 +25,6 @@ export default function NavigationBar() {
   const menuItems = [
     { title: 'Home', href: '/' },
     { title: 'Menu', href: '/menu' },
-    { title: 'About', href: '/about' },
     { title: 'Contact', href: '/contact' },
   ];
 
@@ -34,6 +36,7 @@ export default function NavigationBar() {
       setIsLoggedIn(false);
     }
   }, [user]);
+
 
   return (
     <Navbar isBordered className="flex justify-center gap-8">
@@ -60,9 +63,9 @@ export default function NavigationBar() {
 
       <NavbarContent className="hidden sm:flex justify-between gap-4" justify="start">
         {
-          menuItems.map((item) => (
-            <NavbarItem key={item.title}>
-              <Link color="foreground" href={item.href}>
+          menuItems.map((item, idx) => (
+            <NavbarItem key={item.title} className="">
+              <Link color="foreground" href={item.href} className={item.href === pathname ? 'text-secondaryBg font-bold': ''}>
                 {item.title}
               </Link>
             </NavbarItem>
@@ -78,7 +81,7 @@ export default function NavigationBar() {
               width={0}
               height={0}
               sizes="100vw"
-              className={'lg:w-[100px] lg:h-[100px] md:w-[75px] md:h-[75px] sm:w-[50px] sm:h-[50px]'}
+              className={'lg:w-[100px] lg:h-[100px] md:w-[75px] md:h-[75px] w-[50px] h-[50px]'}
               priority
             />
           </Link>
@@ -87,17 +90,15 @@ export default function NavigationBar() {
       </NavbarContent>
 
       <NavbarContent justify="end">
+        <div className="border-2 border-primaryBg bg-primaryBg text-primary rounded-full p-2">
+          <Link href={'/order'} className={('/order' === pathname ? 'font-bold': '')}>Order</Link>
+        </div>
         <Badge color="danger" content={cartItemsCount} isInvisible={cartItemsCount <= 0} shape="circle" showOutline={false}>
           <LiaShoppingBagSolid className='w-8 h-8'/>
         </Badge>
         { isLoggedIn
-          ? <User
-              avatarProps={{
-                src: "https://i.pravatar.cc/150?u=a04258114e29026302d"
-              }}
-            />
-          :
-          <Link className='lg:text-2xl md:text-xl sm:text-lg font-bold text-primaryBg' href={'/login'}>Login</Link>
+          ? <UserIcon />
+          : <Link className='lg:text-2xl md:text-xl text-lg font-bold text-primaryBg' href={'/login'}>Login</Link>
         }
       </NavbarContent>
 

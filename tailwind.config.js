@@ -24,8 +24,8 @@ module.exports = {
         secondaryBg: '#003566',
         appText: '#020102',
 
-        appUnselectedElement: '#9f9f9f',
-        appSelectedElement: '#c1121f'
+        appUnselectedElement: '#780000',
+        appSelectedElement: '#d00000'
       }
     },
   },

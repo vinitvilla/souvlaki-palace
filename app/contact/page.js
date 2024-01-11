@@ -7,15 +7,15 @@ import { HiMailOpen } from 'react-icons/hi';
 
 const contact = () => {
   return (
-  <div class="container mt-20 mx-auto h-screen md:px-6 text-secondaryBg">
-    <section class="mb-32">
-      <div class="flex justify-center">
-        <div class="text-center md:max-w-xl lg:max-w-3xl">
-          <h2 class="mb-12 px-6 text-3xl font-bold">Contact us</h2>
+  <div className="container mt-20 mx-auto h-screen md:px-6 text-secondaryBg">
+    <section className="mb-32">
+      <div className="flex justify-center">
+        <div className="text-center md:max-w-xl lg:max-w-3xl">
+          <h2 className="mb-12 px-6 text-3xl font-bold">Contact us</h2>
         </div>
       </div>
 
-      <div class="flex flex-col lg:flex-row">
+      <div className="flex flex-col lg:flex-row">
         <Card className='m-4 p-4 lg:w-1/2 shrink-0 grow-0 basis-auto lg:px-6'>
           <form>
             <CardBody className='flex flex-col gap-4'>

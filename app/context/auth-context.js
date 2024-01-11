@@ -44,6 +44,14 @@ export const AuthContextProvider = ({ children }) => {
     }
   }
 
+  const logOut = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const verifyOTP = async (otp) => {
     if( otp.length === 6 ){
       try {
@@ -62,7 +70,7 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ user, signIn, verifyOTP, signOut }}>
+    <AuthContext.Provider value={{ user, signIn, verifyOTP, logOut }}>
       {children}
     </AuthContext.Provider>
   )

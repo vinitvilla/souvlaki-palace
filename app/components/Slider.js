@@ -21,6 +21,7 @@ const Slider = ( { selectedItem }) => {
     const data = await fetch(url);
 
     const products = await data.json();
+    console.log(products)
 
     setProducts(products);
   };
@@ -51,7 +52,7 @@ const Slider = ( { selectedItem }) => {
       <div className='flex flex-row gap-5 justify-around m-4'>
         {
           [1, 2, 3].map((item) => (
-            <Card key={item} className="w-full sm:h-[200px] md:h-[200px] lg:h-[400px] space-y-5 p-4 bg-primary p-5" radius="lg">
+            <Card key={item} className="w-full h-[200px] md:h-[200px] lg:h-[400px] space-y-5 p-4 bg-primary p-5" radius="lg">
               <Skeleton className="rounded-lg">
                 <div className="h-24 rounded-lg bg-default-300"></div>
               </Skeleton>
@@ -75,7 +76,7 @@ const Slider = ( { selectedItem }) => {
             key={item.id}
             className='!flex bg-white rounded-xl justify-center items-center m-4'
           >
-            <div className='rounded-xl overflow-hidden lg:w-full md:w-full sm:w-full md:h-[400px] sm:h-[200px] flex justify-center'>
+            <div className='rounded-xl overflow-hidden lg:w-full md:w-full w-full md:h-[600px] h-[400px] flex justify-center'>
               <MenuItem
                 title={item.title}
                 description={item.description}

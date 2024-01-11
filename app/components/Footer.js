@@ -38,9 +38,10 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-1 text-secondaryBg">Quick Links</h3>
             <ul>
               <li><Link href="/" className="hover:text-appSelectedElement">Home</Link></li>
-              <li><Link href="/about" className="hover:text-appSelectedElement">About</Link></li>
               <li><Link href="/menu" className="hover:text-appSelectedElement">Menu</Link></li>
+              <li><Link href="/order" className="hover:text-appSelectedElement">Order</Link></li>
               <li><Link href="/contact" className="hover:text-appSelectedElement">Contact</Link></li>
+              <li><Link href="/login" className="hover:text-appSelectedElement">Login</Link></li>
             </ul>
           </div>
 
