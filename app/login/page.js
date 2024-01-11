@@ -11,7 +11,7 @@ const Login = () => {
 
   const steps = [
     { id: 0, name: 'Get OTP', label: 'Enter your phone number', isActive: true},
-    { id: 1, name: 'Verify OTP', label: 'Enter OTP sent to your phone', isActive: false},
+    { id: 1, name: 'Verify OTP', label: 'Enter OTP sent to your phone', isActive: true},
     { id: 2, name: 'Create Account', label: 'Create Account', isActive: false},
   ];
 
