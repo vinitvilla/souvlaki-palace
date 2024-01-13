@@ -81,6 +81,7 @@ const Slider = ( { selectedItem }) => {
                 description={item.description}
                 img={item.image}
                 category={item.category}
+                price={item.price}
               />
             </div>
           </SwiperSlide>
