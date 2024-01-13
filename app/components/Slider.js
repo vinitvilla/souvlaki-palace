@@ -8,7 +8,6 @@ import 'swiper/css/pagination';
 import { Navigation, A11y, Pagination, FreeMode } from 'swiper/modules'
 import MenuItem from './MenuItem';
 
-import './../styles/Slider.module.css';
 import { Card, Skeleton } from '@nextui-org/react';
 
 // External Data import
@@ -41,9 +40,9 @@ const Slider = ( { selectedItem }) => {
         clickable: true,
       }}
       breakpoints={{
-        480: { slidesPerView: 2 },
-        740: { slidesPerView: 3 },
-        1275: { slidesPerView: 4 },
+        480: { slidesPerView: 1.5 },
+        740: { slidesPerView: 2 },
+        1275: { slidesPerView: 3 },
       }}
     >
     {
@@ -74,9 +73,9 @@ const Slider = ( { selectedItem }) => {
       : products.filter((item) => item.category === selectedItem).map((item) => (
           <SwiperSlide
             key={item.id}
-            className='!flex bg-white rounded-xl justify-center items-center m-4'
+            className='rounded-xl justify-center items-center my-6 px-4'
           >
-            <div className='rounded-xl overflow-hidden lg:w-full md:w-full w-full md:h-[600px] h-[400px] flex justify-center'>
+            <div className='rounded-xl overflow-hidden w-full md:h-[480px] h-[320px] flex justify-center'>
               <MenuItem
                 title={item.title}
                 description={item.description}

@@ -13,7 +13,7 @@ export default function MenuItem({title, description, img, category}) {
       <CardBody className="flex flex-1 justify-center items-center py-2 rounded-xl overflow-hidden">
         <Image
           alt="Card background"
-          className="rounded-xl w-full p-8 h-[250px] object-cover"
+          className="rounded-xl w-full p-8 h-[150px]"
           src={img}
           width={0}
           height={0}
